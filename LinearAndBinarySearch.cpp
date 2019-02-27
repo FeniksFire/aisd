@@ -4,7 +4,7 @@ template<typename T>
 class Container {
 public:
 	Container() = default;
-	virtual ~Container() {}
+	virtual ~Container() = default;
 	
 	void reserve(const size_t &size) {
 		this->size = size;
