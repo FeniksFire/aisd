@@ -32,13 +32,13 @@ public:
 		return -1;
 	}
 	
-	int recusiveBinarySearch(T searchNumber, size_t left, size_t right) const {
+	int recursiveBinarySearch(T searchNumber, size_t left, size_t right) const {
 		if (left <= right) {
 			auto middle = (left + right) / 2;
 			if (this->valueAt(middle) < searchNumber)
-				return recusiveBinarySearch(searchNumber, middle + 1, right);
+				return recursiveBinarySearch(searchNumber, middle + 1, right);
 			else if (this->valueAt(middle) > searchNumber)
-				return recusiveBinarySearch(searchNumber, left, middle);
+				return recursiveBinarySearch(searchNumber, left, middle);
 			else
 				return middle;
 		}

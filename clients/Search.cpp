@@ -20,7 +20,7 @@ void init() {
 	
 	const auto linear = data.linearSearch(searchNumber);
 	const auto iterativeBinary = data.iterativeBinarySearch(searchNumber);
-	const auto recusiveBinary = data.recusiveBinarySearch(searchNumber, 0, data.getSize() - 1);
+	const auto recusiveBinary = data.recursiveBinarySearch(searchNumber, 0, data.getSize() - 1);
 	
 	if (linear == -1)
 		std::cout << "Can't find number by linear search\n";
