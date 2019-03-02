@@ -10,16 +10,15 @@ public:
 	
 	virtual ~Container()
 	{
-		if (array != nullptr && dynamic)
-			delete[] array;
+		free();
 	}
 	
 	void reserve(const size_t &size)
 	{
-		this->size = size;
+		free();
 		
-		if (array != nullptr)
-			delete[] array;
+		this->size = size;
+		dynamic = true;
 		array = new T[size];
 	}
 	
@@ -43,6 +42,17 @@ public:
 		return *(array + index);
 	}
 	
+	bool empty() const
+	{
+		return array == nullptr;
+	}
+	
+	bool isDynamic() const
+	{
+		return dynamic;
+	}
+	
+	
 	friend std::ostream &operator<<(std::ostream &os, const Container &container) {
 		for (auto i = container.begin(); i != container.end(); i++)
 			os << *i << " ";
@@ -61,9 +71,15 @@ protected:
 		*first = *second;
 		*second = temp;
 	}
+	void free()
+	{
+		if(empty() && isDynamic())
+			delete[] array;
+	};
 	
 private:
 	bool dynamic = true;
+	
 	T *array = nullptr;
 	size_t size{0};
 };
