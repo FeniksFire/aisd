@@ -1,7 +1,7 @@
 #include <iostream>
 #include "SearchContainer.h"
 
-void init() {
+void run() {
 	SearchContainer<int> data;
 	size_t size{0};
 	int searchNumber{0};
@@ -36,6 +36,6 @@ void init() {
 }
 
 int main() {
-	init();
+	run();
 	return 0;
 }

@@ -39,3 +39,25 @@ TEST_F(SortTest, selectionSortIntegerArray)
 	for(int i = 0; i<5; i++)
 		ASSERT_EQ(container.valueAt(i), sortedArray[i]);
 }
+
+TEST_F(SortTest, partitionZeroOne)
+{
+	int array[] = {0, 1, 0, 0, 1, 1, 0, 1, 0};
+	int segregated[] = {0, 0, 0, 0, 0, 1, 1, 1, 1};
+	
+	container = SortContainer<int>(array, 9);
+	container.twoWayPartition([](int a) { return a == 1; });
+	for(int i = 0; i<9; i++)
+		ASSERT_EQ(container.valueAt(i), segregated[i]);
+}
+
+TEST_F(SortTest, partitionZeroOneTwo)
+{
+	int array[] = {2, 0, 0, 2, 1, 2, 0, 1, 0};
+	int segregated[] = {0, 0, 0, 0, 1, 1, 2, 2, 2};
+	
+	container = SortContainer<int>(array, 9);
+	container.threeWayPartition([](int a) { return a > 1; }, [](int a) { return a == 1; });
+	for(int i = 0; i<9; i++)
+		ASSERT_EQ(container.valueAt(i), segregated[i]);
+}
