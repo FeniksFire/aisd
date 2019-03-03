@@ -52,7 +52,6 @@ public:
 		return dynamic;
 	}
 	
-	
 	friend std::ostream &operator<<(std::ostream &os, const Container &container) {
 		for (auto i = container.begin(); i != container.end(); i++)
 			os << *i << " ";
@@ -64,7 +63,7 @@ public:
 			is >> *i;
 		return is;
 	}
-
+	
 protected:
 	void swap(T *first, T *second) {
 		T temp = *first;
@@ -73,7 +72,7 @@ protected:
 	}
 	void free()
 	{
-		if(empty() && isDynamic())
+		if(isDynamic())
 			delete[] array;
 	};
 	
