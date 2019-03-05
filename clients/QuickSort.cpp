@@ -1,6 +1,6 @@
 #include "SortContainer.h"
 
-void run() {
+void runFirst() {
 	SortContainer<int> data;
 	size_t size{0};
 	
@@ -11,20 +11,12 @@ void run() {
 	data.reserve(size);
 	std::cin >> data;
 	
-	data.bubbleSort();
-	std::cout << "BubbleSort: ";
-	std::cout<<data;
-	
-	data.innerSort();
-	std::cout << "\nInnerSort: ";
-	std::cout<<data;
-	
-	data.selectionSort();
-	std::cout << "\nSelectionSort: ";
+	data.quickSort(0, size-1);
+	std::cout << "QuickSort: ";
 	std::cout<<data;
 }
 
 int main() {
-	run();
+	runFirst();
 	return 0;
 }

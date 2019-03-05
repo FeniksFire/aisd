@@ -77,4 +77,33 @@ public:
 				mid++;
 		}
 	}
+	
+	void quickSort(int low, int hight)
+	{
+		if(low < hight)
+		{
+			auto p = partition(low, hight);
+			quickSort(low, p-1);
+			quickSort(p+1, hight);
+		}
+	}
+
+	int partition(int low, int hight)
+	{
+		auto pivot = this->valueAt(hight);
+		auto i = low;
+		
+		for(auto j = low; j<hight; j++)
+		{
+			auto first = this->valueAt(j);
+			auto second = this->valueAt(i);
+			if(this->valueAt(j) < pivot)
+			{
+				this->swap(this->at(i), this->at(j));
+				i++;
+			}
+		}
+		this->swap(this->at(i), this->at(hight));
+		return i;
+	}
 };

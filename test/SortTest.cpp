@@ -61,3 +61,16 @@ TEST_F(SortTest, partitionZeroOneTwo)
 	for(int i = 0; i<9; i++)
 		ASSERT_EQ(container.valueAt(i), segregated[i]);
 }
+
+TEST_F(SortTest, quickSort)
+{
+	int array[] = {6, 3, 7, 5, 1};
+	int sortedArray[] = {1, 3, 5, 6, 7};
+	
+	container = SortContainer<int>(array, 5);
+	
+	container.quickSort(0, 4);
+	
+	for(int i = 0; i<5; i++)
+		ASSERT_EQ(container.valueAt(i), sortedArray[i]);
+}
