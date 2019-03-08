@@ -52,6 +52,10 @@ public:
 		return dynamic;
 	}
 	
+	T & operator [](int idx) {
+		return array[idx];
+	}
+	
 	friend std::ostream &operator<<(std::ostream &os, const Container &container) {
 		for (auto i = container.begin(); i != container.end(); i++)
 			os << *i << " ";
