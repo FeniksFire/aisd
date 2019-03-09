@@ -1,4 +1,4 @@
-add_library(aisdlib "")
+add_library(aisdlib "" Stack.h)
 
 target_include_directories(aisdlib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
