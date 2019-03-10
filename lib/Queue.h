@@ -3,12 +3,10 @@
 #include <cstring>
 
 template<typename T>
-class Stack {
+class Queue
+{
 public:
-	~Stack()
-	{
-		delete []data;
-	}
+	
 	void push(const T & entry)
 	{
 		T * newData = new T[entries+1];
@@ -18,6 +16,7 @@ public:
 		data[entries] = entry;
 		entries++;
 	}
+	
 	void pop()
 	{
 		entries--;
@@ -29,12 +28,20 @@ public:
 		}
 		else {
 			T *newData = new T[entries];
-			memcpy(newData, data, sizeof(T)*entries);
+			for(int i = 1; i<=entries; i++)
+				newData[i - 1] = data[i];
+			
 			delete[]data;
 			data = newData;
 		}
 	}
-	T & top() const
+	
+	T & front() const
+	{
+		return *data;
+	}
+	
+	T & back() const
 	{
 		return data[entries-1];
 	}
@@ -44,8 +51,7 @@ public:
 		return data == nullptr && !size();
 	}
 	
-	size_t size() const
-	{
+	size_t size() const {
 		return entries;
 	}
 	

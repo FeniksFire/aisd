@@ -10,7 +10,7 @@ void run() {
 	if(!stack.empty())
 		std::cout << "Stack top: " << stack.top() << "\n";
 	else
-		std::cout << "Stack top: " << stack.top();
+		std::cout << "Stack is empty\n";
 	
 	stack.pop();
 	std::cout << "Stack last element was removed\n";
@@ -18,7 +18,7 @@ void run() {
 	if(!stack.empty())
 		std::cout << "Stack top: " << stack.top() << "\n";
 	else
-		std::cout << "Stack top: " << stack.top();
+		std::cout << "Stack is empty\n";
 }
 
 int main() {
