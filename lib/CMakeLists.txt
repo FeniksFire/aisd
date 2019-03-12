@@ -10,6 +10,7 @@ target_sources(aisdlib PUBLIC
         SearchContainer.h
         SortContainer.h
         Stack.h
+        BinarySearchTree.h
         )
 
 set_target_properties(aisdlib PROPERTIES LINKER_LANGUAGE CXX)

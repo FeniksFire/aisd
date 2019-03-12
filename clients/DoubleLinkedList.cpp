@@ -45,10 +45,6 @@ void run() {
 	
 	std::cout << "List elements: \n";
 	std::cout<<list<<"\n";
-	
-
-	
-	
 }
 
 int main() {

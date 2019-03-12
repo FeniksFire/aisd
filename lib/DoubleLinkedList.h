@@ -40,7 +40,11 @@ private:
 		T value;
 	};
 public:
-	virtual ~DoubleLinkedList(){}
+	virtual ~DoubleLinkedList()
+	{
+		for(int i = 0 ; i < size(); i++)
+			remove(i);
+	}
 	
 	void insert(unsigned position, const T & entry)
 	{
