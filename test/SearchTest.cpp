@@ -55,11 +55,11 @@ TEST_F(SearchTest, recursiveBinarySearch)
 	int array[] = {-3, -1, 3, 7, 9};
 	
 	container = SearchContainer<int>(array, 5);
-	iterative(-3,0);
-	iterative(-1,1);
-	iterative(3,2);
-	iterative(7,3);
-	iterative(9,4);
+	recursive(-3,0);
+	recursive(-1,1);
+	recursive(3,2);
+	recursive(7,3);
+	recursive(9,4);
 }
 
 TEST_F(SearchTest, patternKMP)

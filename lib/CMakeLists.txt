@@ -4,6 +4,7 @@ target_include_directories(aisdlib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_sources(aisdlib PUBLIC
         Container.h
+        DoubleLinkedList.h
         PatternFinder.h
         Queue.h
         SearchContainer.h

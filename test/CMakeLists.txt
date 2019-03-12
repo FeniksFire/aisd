@@ -12,6 +12,7 @@ target_sources(AisdTest PRIVATE
         SortTest.cpp
         SearchTest.cpp
         ContainerTest.cpp
+        DoubleLinkedListTest.cpp
         StackTest.cpp
         QueueTest.cpp
         )
