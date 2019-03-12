@@ -10,8 +10,6 @@ void run() {
 	std::cout << "Type tree size: ";
 	std::cin >> size;
 	
-
-	
 	BinarySearchTree<int> tree(root);
 	for(int i = 0; i<size; i++)
 	{
