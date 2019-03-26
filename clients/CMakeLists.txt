@@ -3,7 +3,7 @@ project(AisdClient)
 
 add_executable(AisdSearch Search.cpp)
 add_executable(AisdSort Sort.cpp)
-add_executable(AisdFlags Segregate.cpp DoubleLinkedList.cpp BinarySearchTree.cpp Heap.cpp)
+add_executable(AisdFlags Segregate.cpp)
 add_executable(QuickSort QuickSort.cpp)
 add_executable(SearchPattern SearchPattern.cpp)
 add_executable(Stack Stack.cpp)

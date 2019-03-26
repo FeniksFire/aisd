@@ -5,6 +5,10 @@ class ContainerTest : public testing::Test
 {
 public:
 	Container<int> container;
+	void count(int value, int result)
+	{
+		ASSERT_EQ(container.count(value), result);
+	};
 };
 
 TEST_F(ContainerTest, isEmpty)
@@ -41,4 +45,15 @@ TEST_F(ContainerTest, isDynamic)
 	
 	container.reserve(7);
 	EXPECT_TRUE(container.isDynamic());
+}
+
+TEST_F(ContainerTest, count)
+{
+	int array[] = {0, 1, 0, 3, 0, 3, 1, 1, 3, 0, 1, 0};
+	
+	container = Container<int>(array, 12);
+	
+	count(0,5);
+	count(1,4);
+	count(3,3);
 }

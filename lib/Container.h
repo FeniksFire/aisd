@@ -52,6 +52,15 @@ public:
 		return dynamic;
 	}
 	
+	size_t count(T value)
+	{
+		size_t amount{0};
+		for (auto first = this->begin(); first != this->end(); first++)
+			if (*first == value)
+				amount++;
+		return amount;
+	}
+	
 	T & operator [](int idx) {
 		return array[idx];
 	}

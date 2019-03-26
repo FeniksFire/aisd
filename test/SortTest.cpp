@@ -46,7 +46,7 @@ TEST_F(SortTest, partitionZeroOne)
 	int segregated[] = {0, 0, 0, 0, 0, 1, 1, 1, 1};
 	
 	container = SortContainer<int>(array, 9);
-	container.twoWayPartition([](int a) { return a == 1; });
+	container.partition(0, container.getSize()-1, [](int a) { return a == 0; });
 	for(int i = 0; i<9; i++)
 		ASSERT_EQ(container.valueAt(i), segregated[i]);
 }

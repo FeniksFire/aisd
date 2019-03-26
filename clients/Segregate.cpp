@@ -76,7 +76,7 @@ void runFirst() {
 	
 	std::cin >> data;
 	
-	data.twoWayPartition(Student::pass);
+	data.partition(0, data.getSize()-1, Student::pass);
 	
 	std::cout<<" "<<data << "\n";
 }

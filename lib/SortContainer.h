@@ -18,7 +18,6 @@ public:
 			for (auto j = 0; j < this->getSize() - i - 1; j++)
 				if (this->valueAt(j) > this->valueAt(j + 1))
 					this->swap(this->at(j), this->at(j + 1));
-		
 	}
 	
 	void innerSort()
@@ -40,20 +39,20 @@ public:
 		}
 	}
 	
-	void twoWayPartition(std::function<bool(T)> condition)
+	int partition(size_t first, size_t last, std::function<bool(T)> condition)
 	{
-		int right = this->getSize() - 1;
-		int left = 0;
-		while (left < right) {
-			if (!condition(this->valueAt(left)))
-				left++;
-			if (condition(this->valueAt(right)))
-				right--;
-			if (left >= right)
-				break;
-			if (condition(this->valueAt(left)) && !condition(this->valueAt(right)))
-				this->swap(this->at(left), this->at(right));
+		auto i = first;
+		
+		for(auto j = first; j < last; j++)
+		{
+			if(condition(this->valueAt(j)))
+			{
+				this->swap(this->at(i), this->at(j));
+				i++;
+			}
 		}
+		this->swap(this->at(i), this->at(last));
+		return i;
 	}
 	
 	void threeWayPartition(std::function<bool(T)> condition, std::function<bool(T)> isPivot)
@@ -78,32 +77,14 @@ public:
 		}
 	}
 	
-	void quickSort(int low, int hight)
+	void quickSort(int first, int last)
 	{
-		if(low < hight)
+		if(first < last)
 		{
-			auto p = partition(low, hight);
-			quickSort(low, p-1);
-			quickSort(p+1, hight);
+			auto pivot = this->valueAt(last);
+			auto pivotPos = partition(first, last, [&pivot](int val)->bool{return val < pivot;});
+			quickSort(first, pivotPos-1);
+			quickSort(pivotPos+1, last);
 		}
-	}
-
-	int partition(int low, int hight)
-	{
-		auto pivot = this->valueAt(hight);
-		auto i = low;
-		
-		for(auto j = low; j<hight; j++)
-		{
-			auto first = this->valueAt(j);
-			auto second = this->valueAt(i);
-			if(this->valueAt(j) < pivot)
-			{
-				this->swap(this->at(i), this->at(j));
-				i++;
-			}
-		}
-		this->swap(this->at(i), this->at(hight));
-		return i;
 	}
 };
