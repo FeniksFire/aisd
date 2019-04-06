@@ -90,7 +90,7 @@ public:
 	std::vector<int> KarpRabin(std::string text, std::string pattern) const {
 		std::vector<int> indexes;
 		auto hashpattern = std::hash<std::string>{}(pattern);
-		for(int i=0; i < text.size() - pattern.size(); i++)
+		for(int i = 0; i <= text.size() - pattern.size(); i++)
 			if(std::hash<std::string>{}(text.substr(i, pattern.size())) == hashpattern)
 				indexes.push_back(i);
 		return indexes;
